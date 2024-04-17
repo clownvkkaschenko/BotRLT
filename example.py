@@ -1,8 +1,9 @@
 """Файл с ответами для входных данных из тестового задания."""
+from datetime import datetime
 
 MONTH = {
-    "dt_from": "2022-09-01T00:00:00",
-    "dt_upto": "2022-12-31T23:59:00",
+    "dt_from": datetime.strptime("2022-09-01T00:00:00", '%Y-%m-%dT%H:%M:%S'),
+    "dt_upto": datetime.strptime("2022-12-31T23:59:00", '%Y-%m-%dT%H:%M:%S'),
     "group_type": "month"
 }
 EXAMPLE_MONTH = {
@@ -14,8 +15,8 @@ EXAMPLE_MONTH = {
 }
 
 DAY = {
-    "dt_from": "2022-10-01T00:00:00",
-    "dt_upto": "2022-11-30T23:59:00",
+    "dt_from": datetime.strptime("2022-10-01T00:00:00", '%Y-%m-%dT%H:%M:%S'),
+    "dt_upto": datetime.strptime("2022-11-30T23:59:00", '%Y-%m-%dT%H:%M:%S'),
     "group_type": "day"
 }
 
@@ -49,8 +50,8 @@ EXAMPLE_DAY = {
 }
 
 HOUR = {
-   "dt_from": "2022-02-01T00:00:00",
-   "dt_upto": "2022-02-02T00:00:00",
+   "dt_from": datetime.strptime("2022-02-01T00:00:00", '%Y-%m-%dT%H:%M:%S'),
+   "dt_upto": datetime.strptime("2022-02-02T00:00:00", '%Y-%m-%dT%H:%M:%S'),
    "group_type": "hour"
 }
 EXAMPLE_HOUR = {
