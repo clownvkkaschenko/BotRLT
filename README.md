@@ -46,8 +46,8 @@
     ```
 - Создайте файл **.env**, в корневой папке проекта:
     ```
-    TOKEN=Telegram_token
-    CLIENT_URI=mongodb://localhost:27017/
+    TG_TOKEN=Telegram_token
+    URI=mongodb://localhost:27017/
     DB_NAME=sampleDB
     COLLECTION_NAME=sample_collection
     ```
