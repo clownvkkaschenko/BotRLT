@@ -1,5 +1,7 @@
 import json
-from datetime import datetime
+from datetime import datetime, time
+
+from dateutil.relativedelta import relativedelta
 
 
 def is_valid_message(msg):
@@ -23,3 +25,10 @@ def is_valid_message(msg):
         return False
 
     return dt_from, dt_upto, group_type
+
+
+def get_valid_end_date(end_date, aggregation_type):
+    """Проверяем чтобы последняя дата из диапазона была добавлена в операцию $densify."""
+    if end_date.time() == time():
+        return end_date + relativedelta(**{aggregation_type + 's': 1})
+    return end_date

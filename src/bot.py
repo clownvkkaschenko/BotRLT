@@ -1,7 +1,6 @@
 import asyncio
 import json
 import logging
-import os
 import sys
 
 from aiogram import Bot, Dispatcher
@@ -9,13 +8,10 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
-from dotenv import load_dotenv
 
 from algorithm import aggregator
+from config import tg_token
 from helper import is_valid_message
-
-load_dotenv()
-TOKEN = os.environ.get('TOKEN')
 
 dp = Dispatcher()
 
@@ -46,12 +42,12 @@ async def message_all_handler(message: Message) -> None:
     if not check:
         return await message.answer('Ошибка')
 
-    result = aggregator.aggregate_data(*check)
+    result = await aggregator.aggregate_data(*check)
     await message.answer(json.dumps(result))
 
 
 async def main() -> None:
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    bot = Bot(token=tg_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await dp.start_polling(bot)
 
 
